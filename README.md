@@ -5,3 +5,8 @@ The `handle_connection` function in the code processes incoming TCP connections 
 
 ## Reflection 2
 ![Commit 2 screen capture](assets/images/commit2.png)
+
+## Reflection 3
+The refactoring is needed because the code in the if-else blocks are repetive (reading lines). We split between requests by looking at the response (200 OK vs 404 NOT FOUND)
+![bad request response](assets/images/commit3.png)
+
