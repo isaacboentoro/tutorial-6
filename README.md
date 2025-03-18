@@ -12,3 +12,7 @@ The refactoring is needed because the code in the if-else blocks are repetive (r
 
 ## Reflection 4
 The second request was completely blocked until the first request (sleep) finishes processing. This happens because the server is single-threaded and proesses requests sequentially. The stream loop handles one connection at a time.
+
+## Reflection 5
+The ThreadPool struct contains a collection of workers(threads) and has a channel sender for dispatching jobs to the workers.
+The function new() creates a channel for communicatino between pool and workers, wraps the reciever in Arc<Mutex> to share ownership accross multiple owners, and to ensure only one worker accesses the reciever at a time. It then creates the specified number of workers each with its own thread. It then returns the thread pool with channel sender.
