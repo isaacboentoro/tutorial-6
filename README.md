@@ -10,3 +10,5 @@ The `handle_connection` function in the code processes incoming TCP connections 
 The refactoring is needed because the code in the if-else blocks are repetive (reading lines). We split between requests by looking at the response (200 OK vs 404 NOT FOUND)
 ![bad request response](assets/images/commit3.png)
 
+## Reflection 4
+The second request was completely blocked until the first request (sleep) finishes processing. This happens because the server is single-threaded and proesses requests sequentially. The stream loop handles one connection at a time.
